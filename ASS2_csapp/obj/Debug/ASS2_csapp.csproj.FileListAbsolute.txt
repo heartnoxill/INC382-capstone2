@@ -1,0 +1,7 @@
+C:\Users\computer\Desktop\Year 3 term 2\INC382\ASS2_csapp\bin\Debug\ASS2_csapp.exe.config
+C:\Users\computer\Desktop\Year 3 term 2\INC382\ASS2_csapp\bin\Debug\ASS2_csapp.exe
+C:\Users\computer\Desktop\Year 3 term 2\INC382\ASS2_csapp\bin\Debug\ASS2_csapp.pdb
+C:\Users\computer\Desktop\Year 3 term 2\INC382\ASS2_csapp\obj\Debug\ASS2_csapp.csprojAssemblyReference.cache
+C:\Users\computer\Desktop\Year 3 term 2\INC382\ASS2_csapp\obj\Debug\ASS2_csapp.csproj.CoreCompileInputs.cache
+C:\Users\computer\Desktop\Year 3 term 2\INC382\ASS2_csapp\obj\Debug\ASS2_csapp.exe
+C:\Users\computer\Desktop\Year 3 term 2\INC382\ASS2_csapp\obj\Debug\ASS2_csapp.pdb
