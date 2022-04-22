@@ -36,7 +36,6 @@ namespace BackendDotNet.Data
             modelBuilder.Entity<User>(entity =>
             {
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
                     .HasColumnName("id");
 
                 entity.Property(e => e.Password)

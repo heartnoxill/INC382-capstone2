@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using BackendDotNet.Models;
 using Microsoft.EntityFrameworkCore;
 using BackendDotNet.Data;
+using BackendDotNet.Services;
+using BackendDotNet.Services.Interface;
 
 namespace BackendDotNet.Controllers
 {
@@ -16,11 +18,11 @@ namespace BackendDotNet.Controllers
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
-        private readonly DatabaseContext _databaseContext;
-        public UserController(ILogger<UserController> logger, DatabaseContext databaseContext)
+        private readonly IUserService _userService;
+        public UserController(ILogger<UserController> logger, IUserService userService)
         {
             _logger = logger;
-            _databaseContext = databaseContext;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -29,8 +31,8 @@ namespace BackendDotNet.Controllers
             // business logic
             try
             {
-                var userAll = _databaseContext.Users.ToList();
-                return Ok(new { result = userAll, message = "success" });
+                var result = _userService.GetUsers();
+                return Ok(new { result = result, message = "success" });
             }
             catch (Exception ex)
             {
@@ -44,14 +46,8 @@ namespace BackendDotNet.Controllers
             // business logic
             try
             {
-                var _user = _databaseContext.Users.SingleOrDefault(o => o.Id == user.Id);
-            if(_user != null)
-            {
-                _user.Password = user.Password;
-            }
-            _databaseContext.SaveChanges();
-
-            return Ok(new { message = "success" });
+                _userService.UpdateUser(user);
+                return Ok(new { message = "success" });
             }
 
             catch (Exception ex)
@@ -66,8 +62,7 @@ namespace BackendDotNet.Controllers
             // business logic
             try
             {
-                _databaseContext.Users.Add(user);
-                _databaseContext.SaveChanges();;
+                _userService.CreateUser(user);
                 return Ok(new { message = "success" });
             }
 
@@ -83,12 +78,7 @@ namespace BackendDotNet.Controllers
             // business logic
             try
             {
-                var _user = _databaseContext.Users.SingleOrDefault(o => o.Id == id);
-                if(_user != null)
-                {
-                    _databaseContext.Users.Remove(_user);
-                    _databaseContext.SaveChanges();
-                }
+                _userService.DeleteUser(id);
                 return Ok(new { message = "success" });
             }
 

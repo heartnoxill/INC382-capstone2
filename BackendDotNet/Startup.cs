@@ -10,6 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using BackendDotNet.Repositories.Interface;
+using BackendDotNet.Repositories;
+using BackendDotNet.Services.Interface;
+using BackendDotNet.Services;
 
 namespace BackendDotNet
 {
@@ -26,6 +30,8 @@ namespace BackendDotNet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseContext")));
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddSwaggerGen();
             services.AddControllersWithViews();
         }
