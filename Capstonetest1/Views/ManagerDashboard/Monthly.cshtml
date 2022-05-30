@@ -1,0 +1,424 @@
+@{
+    ViewData["Title"] = "Monthly";
+}
+<div>
+    <a class="nav-link btn btn-secondary" asp-controller="ManagerDashboard" asp-action="Index">Back to Manager Dashboard Page</a>
+</div>
+
+<h1>Monthly Manager Dashboard</h1>
+
+@* <input type="date" name="selDate" id="selDate" value="2022-03-31" min="2022-03-01" max="2022-05-01"/> *@
+<button onclick="myFunction()">Show Data</button>
+
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3 id="DieselVolMonthly"></><sup style="font-size: 20px"></sup></h3>
+
+                <p>Monthly Diesel Volume</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              @* <a href="" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a> *@
+              <div class="small-box-footer"></div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3 id="Gas95VolMonthly"></><sup style="font-size: 20px"></sup></h3>
+
+                <p>Monthly Gas95 Volume</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              @* <a href="" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a> *@
+              <div class="small-box-footer"></div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3 id="AvgDieselCycleMonthly"></><sup style="font-size: 20px"></sup></h3>
+
+                <p>AVG Diesel Cycle Time</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-clock"></i>
+              </div>
+              @* <a href="" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a> *@
+              <div class="small-box-footer"></div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3 id="AvgGas95CycleMonthly"></><sup style="font-size: 20px"></sup></h3>
+
+                <p>AVG GAS95 Cycle Time</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-clock"></i>
+              </div>
+              @* <a href="" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a> *@
+              <div class="small-box-footer"></div>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+
+        @* GRAPH SECTION *@
+        <div class="row">
+        <!-- BAR CHART -->
+            <div class="card card-secondary col-md-6">
+              <div class="card-header">
+                <h3 class="card-title">Average waiting time at each station</h3>
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 491px;" width="491" height="250" class="chartjs-render-monitor"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        <!-- BAR CHART 2-->
+            <div class="card card-secondary col-md-6">
+              <div class="card-header">
+                <h3 class="card-title">Number of failed time at each station</h3>
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 491px;" width="491" height="250" class="chartjs-render-monitor"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            </div>
+
+        <!-- BAR CHART 3-->
+            <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Schedule Utilization</h3>
+
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barChart3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 491px;" width="491" height="250" class="chartjs-render-monitor"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            </div>
+
+        @*Bottom cards*@
+
+        <div class="row">
+          <div class="col-md-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3 id="TruckInM"></><sup style="font-size: 20px"></sup></h3>
+
+                <p>Monthly Truck in</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              @* <a href="" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a> *@
+              <div class="small-box-footer"></div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-md-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3 id="TruckOutM"></><sup style="font-size: 20px"></sup></h3>
+
+                <p>Monthly Truck out</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              @* <a href="" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a> *@
+              <div class="small-box-footer"></div>
+            </div>
+          </div>
+        </div>
+
+<script type="text/javascript">
+  var MSW = 1.2345;
+  var MIW = 1.2345;
+  var MDW = 1.2345;
+  var MGW = 1.2345;
+  var MOW = 1.2345;
+  let showDataM = [];
+
+  var failDieselM = 0;
+  var failGas95M = 0;
+  let showData2M = [];
+
+  var SCHSalesM = 1.2345;
+  var SCHInwbM = 1.2345;
+  var SCHDieselM = 1.2345;
+  var SCHGas95M = 1.2345;
+  var SCHOutwbM = 1.2345;
+  let showData3M = [];
+
+async function myFunction(){
+  @* var x = document.getElementById("selDate").value; *@
+
+  fetch(`https://localhost:5001/api/pi/monthlyDieselFilling/`)
+  .then(response => response.json())
+  .then(data => {
+  document.getElementById("DieselVolMonthly").innerHTML = data.result[0].values;
+  });
+
+  fetch(`https://localhost:5001/api/pi/monthlyGas95Filling/`)
+  .then(response => response.json())
+  .then(data => {
+  document.getElementById("Gas95VolMonthly").innerHTML = data.result[0].values;
+  });
+
+  fetch(`https://localhost:5001/api/pi/monthlyDieselAvgCycle/`)
+  .then(response => response.json())
+  .then(data => {
+  document.getElementById("AvgDieselCycleMonthly").innerHTML = data.result[0].values;
+  });
+
+  fetch(`https://localhost:5001/api/pi/monthlyGas95AvgCycle/`)
+  .then(response => response.json())
+  .then(data => {
+  document.getElementById("AvgGas95CycleMonthly").innerHTML = data.result[0].values;
+  });
+
+  fetch(`https://localhost:5001/api/pi/monthlyTruckIn/`)
+  .then(response => response.json())
+  .then(data => {
+  document.getElementById("TruckInM").innerHTML = data.result[0].values;
+  });
+
+  fetch(`https://localhost:5001/api/pi/monthlyTruckOut/`)
+  .then(response => response.json())
+  .then(data => {
+  document.getElementById("TruckOutM").innerHTML = data.result[0].values;
+  });
+
+  // GRAPH 1
+
+  await fetch(`https://localhost:5001/api/pi/monthlySalesWait/`)
+  .then(response => response.json())
+  .then(data => MSW = data.result[0].values)
+  .then(() => showDataM = [])
+  .then(() => showDataM.push(MSW))
+  .then(() => console.log(MSW));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyInwbWait/`)
+  .then(response => response.json())
+  .then(data => MIW = data.result[0].values)
+  .then(() => showDataM.push(MIW))
+  .then(() => console.log(MIW));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyDieselWait/`)
+  .then(response => response.json())
+  .then(data => MDW = data.result[0].values)
+  .then(() => showDataM.push(MDW))
+  .then(() => console.log(MDW));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyGas95Wait/`)
+  .then(response => response.json())
+  .then(data => MGW = data.result[0].values)
+  .then(() => showDataM.push(MGW))
+  .then(() => console.log(MGW));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyOutwbWait/`)
+  .then(response => response.json())
+  .then(data => MOW = data.result[0].values)
+  .then(() => showDataM.push(MOW))
+  .then(() => console.log(MOW));
+
+  // GRAPH 2
+  await fetch(`https://localhost:5001/api/pi/monthlyFailedDiesel/`)
+  .then(response => response.json())
+  .then(data => failDieselM = data.result[0].values)
+  .then(() => showData2M = [])
+  .then(() => showData2M.push(failDieselM))
+  .then(() => console.log(failDieselM));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyFailedGas95/`)
+  .then(response => response.json())
+  .then(data => failGas95M = data.result[0].values)
+  .then(() => showData2M.push(failGas95M))
+  .then(() => console.log(failGas95M));
+
+  // GRAPH 3
+  await fetch(`https://localhost:5001/api/pi/monthlyAvgSCHSales/`)
+  .then(response => response.json())
+  .then(data => SCHSalesM = data.result[0].values)
+  .then(() => showData3M = [])
+  .then(() => showData3M.push(SCHSalesM))
+  .then(() => console.log(SCHSalesM));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyAvgSCHInwb/`)
+  .then(response => response.json())
+  .then(data => SCHInwbM = data.result[0].values)
+  .then(() => showData3M.push(SCHInwbM))
+  .then(() => console.log(SCHInwbM));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyAvgSCHDiesel/`)
+  .then(response => response.json())
+  .then(data => SCHDieselM = data.result[0].values)
+  .then(() => showData3M.push(SCHDieselM))
+  .then(() => console.log(SCHDieselM));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyAvgSCHGas95/`)
+  .then(response => response.json())
+  .then(data => SCHGas95M = data.result[0].values)
+  .then(() => showData3M.push(SCHGas95M))
+  .then(() => console.log(SCHGas95M));
+
+  await fetch(`https://localhost:5001/api/pi/monthlyAvgSCHOutwb/`)
+  .then(response => response.json())
+  .then(data => SCHOutwbM = data.result[0].values)
+  .then(() => showData3M.push(SCHOutwbM))
+  .then(() => console.log(SCHOutwbM));
+
+
+
+  var data1 = {
+    labels  : ['Sales Office', 'Inbound WB', 'Diesel Bay', 'Gasohol95 Bay', 'Outbound WB'],
+    datasets : [
+    {
+      label               : 'Minutes',
+      backgroundColor     : 'rgba(60,141,188,0.9)',
+      borderColor         : 'rgba(60,141,188,0.8)',
+      pointRadius         : false,
+      pointColor          : '#3b8bba',
+      pointStrokeColor    : 'rgba(60,141,188,1)',
+      pointHighlightFill  : '#fff',
+      pointHighlightStroke: 'rgba(60,141,188,1)',
+      data :  Object.values(showDataM)
+    }
+    ]
+  }
+
+  var data2 = {
+    labels : ['DIESEL Bay', 'GASOHOL95 Bay'],
+    datasets : [
+    {
+      label               : 'Time',
+      backgroundColor     : 'rgba(60,141,188,0.9)',
+      borderColor         : 'rgba(60,141,188,0.8)',
+      pointRadius         : false,
+      pointColor          : '#3b8bba',
+      pointStrokeColor    : 'rgba(60,141,188,1)',
+      pointHighlightFill  : '#fff',
+      pointHighlightStroke: 'rgba(60,141,188,1)',
+      data :  Object.values(showData2M)
+    }
+    ]
+  }
+
+  var data3 = {
+    labels : ['Sales Office', 'Inbound WB', 'Diesel Bay', 'Gasohol95 Bay', 'Outbound WB'],
+    datasets : [
+    {
+      label               : 'Unit Interval',
+      backgroundColor     : 'rgba(60,141,188,0.9)',
+      borderColor         : 'rgba(60,141,188,0.8)',
+      pointRadius         : false,
+      pointColor          : '#3b8bba',
+      pointStrokeColor    : 'rgba(60,141,188,1)',
+      pointHighlightFill  : '#fff',
+      pointHighlightStroke: 'rgba(60,141,188,1)',
+      data :  Object.values(showData3M)
+    }
+    ]
+  }
+
+  // BAR CHART 1
+
+  var barChartCanvas = document.getElementById('barChart').getContext('2d');
+    var barChartData = $.extend(true, {}, data1)
+    var temp0 = data1.datasets
+    barChartData.datasets = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(barChartCanvas, {
+      type: 'bar',
+      data: barChartData,
+      options: barChartOptions
+    })
+
+  // BAR CHART 2
+
+  var barChartCanvas2 = document.getElementById('barChart2').getContext('2d');
+    var barChartData2 = $.extend(true, {}, data2)
+    var temp1 = data2.datasets
+    barChartData2.datasets = temp1
+
+    var barChartOptions2 = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false,
+      scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                min: 0, // minimum value
+                max: 10 // maximum value
+            }
+        }]
+    }
+    }
+
+    new Chart(barChartCanvas2, {
+      type: 'bar',
+      data: barChartData2,
+      options: barChartOptions2
+    })
+
+    // BAR CHART 3
+
+  var barChartCanvas3 = document.getElementById('barChart3').getContext('2d');
+    var barChartData3 = $.extend(true, {}, data3)
+    var temp2 = data3.datasets
+    barChartData3.datasets = temp2
+
+    var barChartOptions3 = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(barChartCanvas3, {
+      type: 'bar',
+      data: barChartData3,
+      options: barChartOptions3
+    })
+
+}
+
+</script>

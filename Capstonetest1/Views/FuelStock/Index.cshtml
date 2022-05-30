@@ -1,0 +1,594 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1>Fuel Stock Inventory</h1>
+
+<button onclick="myFunction()">Show Graph</button>
+
+@* GRAPH SECTION *@
+<!-- line CHART -->
+    <div class="card card-secondary">
+        <div class="card-header">
+        <h3 class="card-title">Daily Diesel Inventory Stock</h3>
+
+        </div>
+        <div class="card-body">
+        <div class="chart">
+            <canvas id="lineChart" style="min-height: 500px; height: 500px; max-height: 500px; max-width: 100%; display: block; width: 491px;" width="900" height="500" class="chartjs-render-monitor"></canvas>
+        </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+<!-- line CHART 2-->
+    <div class="card card-secondary">
+        <div class="card-header">
+        <h3 class="card-title">Daily Gasohol95 Inventory Stock</h3>
+
+        </div>
+        <div class="card-body">
+        <div class="chart">
+            <canvas id="lineChart2" style="min-height: 500px; height: 500px; max-height: 500px; max-width: 100%; display: block; width: 491px;" width="900" height="500" class="chartjs-render-monitor"></canvas>
+        </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+<script src="~/plugins/chart.js/chartjs-plugin-datalabels.min.js"></script>
+
+<script type="text/javascript">
+    var d1 = "2022-03-31";
+    var d2 = "2022-04-01";
+    var d3 = "2022-04-02";
+    var d4 = "2022-04-03";
+    var d5 = "2022-04-04";
+    var d6 = "2022-04-05";
+    var d7 = "2022-04-06";
+    var d8 = "2022-04-07";
+    var d9 = "2022-04-08";
+    var d10 = "2022-04-09";
+    var d11 = "2022-04-10";
+    var d12 = "2022-04-11";
+    var d13 = "2022-04-12";
+    var d14 = "2022-04-13";
+    var d15 = "2022-04-14";
+    var d16 = "2022-04-15";
+    var d17 = "2022-04-16";
+    var d18 = "2022-04-17";
+    var d19 = "2022-04-18";
+    var d20 = "2022-04-19";
+    var d21 = "2022-04-20";
+    var d22 = "2022-04-21";
+    var d23 = "2022-04-22";
+    var d24 = "2022-04-23";
+    var d25 = "2022-04-24";
+    var d26 = "2022-04-25";
+    var d27 = "2022-04-26";
+    var d28 = "2022-04-27";
+    var d29 = "2022-04-28";
+    var d30 = "2022-04-29";
+
+    var Diesel1 = 12345;
+    var Diesel2 = 12345;
+    var Diesel3 = 12345;
+    var Diesel4 = 12345;
+    var Diesel5 = 12345;
+    var Diesel6 = 12345;
+    var Diesel7 = 12345;
+    var Diesel8 = 12345;
+    var Diesel9 = 12345;
+    var Diesel10 = 12345;
+    var Diesel11 = 12345;
+    var Diesel12 = 12345;
+    var Diesel13 = 12345;
+    var Diesel14 = 12345;
+    var Diesel15 = 12345;
+    var Diesel16 = 12345;
+    var Diesel17 = 12345;
+    var Diesel18 = 12345;
+    var Diesel19 = 12345;
+    var Diesel20 = 12345;
+    var Diesel21 = 12345;
+    var Diesel22 = 12345;
+    var Diesel23 = 12345;
+    var Diesel24 = 12345;
+    var Diesel25 = 12345;
+    var Diesel26 = 12345;
+    var Diesel27 = 12345;
+    var Diesel28 = 12345;
+    var Diesel29 = 12345;
+    var Diesel30 = 12345;
+    let showDiesel = [];
+
+    var Gas1 = 12345;
+    var Gas2 = 12345;
+    var Gas3 = 12345;
+    var Gas4 = 12345;
+    var Gas5 = 12345;
+    var Gas6 = 12345;
+    var Gas7 = 12345;
+    var Gas8 = 12345;
+    var Gas9 = 12345;
+    var Gas10 = 12345;
+    var Gas11 = 12345;
+    var Gas12 = 12345;
+    var Gas13 = 12345;
+    var Gas14 = 12345;
+    var Gas15 = 12345;
+    var Gas16 = 12345;
+    var Gas17 = 12345;
+    var Gas18 = 12345;
+    var Gas19 = 12345;
+    var Gas20 = 12345;
+    var Gas21 = 12345;
+    var Gas22 = 12345;
+    var Gas23 = 12345;
+    var Gas24 = 12345;
+    var Gas25 = 12345;
+    var Gas26 = 12345;
+    var Gas27 = 12345;
+    var Gas28 = 12345;
+    var Gas29 = 12345;
+    var Gas30 = 12345;
+    let showGas = [];
+
+async function myFunction(){
+
+    // GRAPH 1
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d1}`)
+  .then(response => response.json())
+  .then(data => Diesel1 = data.result[0].values)
+  .then(() => showDiesel = [])
+  .then(() => showDiesel.push(Diesel1))
+  .then(() => console.log(Diesel1));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d2}`)
+  .then(response => response.json())
+  .then(data => Diesel2 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel2))
+  .then(() => console.log(Diesel2));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d3}`)
+  .then(response => response.json())
+  .then(data => Diesel3 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel3))
+  .then(() => console.log(Diesel3));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d4}`)
+  .then(response => response.json())
+  .then(data => Diesel4 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel4))
+  .then(() => console.log(Diesel4));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d5}`)
+  .then(response => response.json())
+  .then(data => Diesel5 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel5))
+  .then(() => console.log(Diesel5));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d6}`)
+  .then(response => response.json())
+  .then(data => Diesel6 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel6))
+  .then(() => console.log(Diesel6));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d7}`)
+  .then(response => response.json())
+  .then(data => Diesel7 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel7))
+  .then(() => console.log(Diesel7));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d8}`)
+  .then(response => response.json())
+  .then(data => Diesel8 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel8))
+  .then(() => console.log(Diesel8));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d9}`)
+  .then(response => response.json())
+  .then(data => Diesel9 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel9))
+  .then(() => console.log(Diesel9));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d10}`)
+  .then(response => response.json())
+  .then(data => Diesel10 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel10))
+  .then(() => console.log(Diesel10));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d11}`)
+  .then(response => response.json())
+  .then(data => Diesel11 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel11))
+  .then(() => console.log(Diesel11));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d12}`)
+  .then(response => response.json())
+  .then(data => Diesel12 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel12))
+  .then(() => console.log(Diesel12));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d13}`)
+  .then(response => response.json())
+  .then(data => Diesel13 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel13))
+  .then(() => console.log(Diesel13));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d14}`)
+  .then(response => response.json())
+  .then(data => Diesel14 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel14))
+  .then(() => console.log(Diesel14));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d15}`)
+  .then(response => response.json())
+  .then(data => Diesel15 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel15))
+  .then(() => console.log(Diesel15));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d16}`)
+  .then(response => response.json())
+  .then(data => Diesel16 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel16))
+  .then(() => console.log(Diesel16));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d17}`)
+  .then(response => response.json())
+  .then(data => Diesel17 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel17))
+  .then(() => console.log(Diesel17));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d18}`)
+  .then(response => response.json())
+  .then(data => Diesel18 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel18))
+  .then(() => console.log(Diesel18));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d19}`)
+  .then(response => response.json())
+  .then(data => Diesel19 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel19))
+  .then(() => console.log(Diesel19));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d20}`)
+  .then(response => response.json())
+  .then(data => Diesel20 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel20))
+  .then(() => console.log(Diesel20));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d21}`)
+  .then(response => response.json())
+  .then(data => Diesel21 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel21))
+  .then(() => console.log(Diesel21));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d22}`)
+  .then(response => response.json())
+  .then(data => Diesel22 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel22))
+  .then(() => console.log(Diesel22));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d23}`)
+  .then(response => response.json())
+  .then(data => Diesel23 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel23))
+  .then(() => console.log(Diesel23));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d24}`)
+  .then(response => response.json())
+  .then(data => Diesel24 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel24))
+  .then(() => console.log(Diesel24));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d25}`)
+  .then(response => response.json())
+  .then(data => Diesel25 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel25))
+  .then(() => console.log(Diesel25));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d26}`)
+  .then(response => response.json())
+  .then(data => Diesel26 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel26))
+  .then(() => console.log(Diesel26));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d27}`)
+  .then(response => response.json())
+  .then(data => Diesel27 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel27))
+  .then(() => console.log(Diesel27));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d28}`)
+  .then(response => response.json())
+  .then(data => Diesel28 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel28))
+  .then(() => console.log(Diesel28));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d29}`)
+  .then(response => response.json())
+  .then(data => Diesel29 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel29))
+  .then(() => console.log(Diesel29));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockDiesel/${d30}`)
+  .then(response => response.json())
+  .then(data => Diesel30 = data.result[0].values)
+  .then(() => showDiesel.push(Diesel30))
+  .then(() => console.log(Diesel30));
+
+    // GRAPH 2 GASOHOL95
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d1}`)
+  .then(response => response.json())
+  .then(data => Gas1 = data.result[0].values)
+  .then(() => showGas = [])
+  .then(() => showGas.push(Gas1))
+  .then(() => console.log(Gas1));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d2}`)
+  .then(response => response.json())
+  .then(data => Gas2 = data.result[0].values)
+  .then(() => showGas.push(Gas2))
+  .then(() => console.log(Gas2));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d3}`)
+  .then(response => response.json())
+  .then(data => Gas3 = data.result[0].values)
+  .then(() => showGas.push(Gas3))
+  .then(() => console.log(Gas3));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d4}`)
+  .then(response => response.json())
+  .then(data => Gas4 = data.result[0].values)
+  .then(() => showGas.push(Gas4))
+  .then(() => console.log(Gas4));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d5}`)
+  .then(response => response.json())
+  .then(data => Gas5 = data.result[0].values)
+  .then(() => showGas.push(Gas5))
+  .then(() => console.log(Gas5));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d6}`)
+  .then(response => response.json())
+  .then(data => Gas6 = data.result[0].values)
+  .then(() => showGas.push(Gas6))
+  .then(() => console.log(Gas6));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d7}`)
+  .then(response => response.json())
+  .then(data => Gas7 = data.result[0].values)
+  .then(() => showGas.push(Gas7))
+  .then(() => console.log(Gas7));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d8}`)
+  .then(response => response.json())
+  .then(data => Gas8 = data.result[0].values)
+  .then(() => showGas.push(Gas8))
+  .then(() => console.log(Gas8));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d9}`)
+  .then(response => response.json())
+  .then(data => Gas9 = data.result[0].values)
+  .then(() => showGas.push(Gas9))
+  .then(() => console.log(Gas9));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d10}`)
+  .then(response => response.json())
+  .then(data => Gas10 = data.result[0].values)
+  .then(() => showGas.push(Gas10))
+  .then(() => console.log(Gas10));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d11}`)
+  .then(response => response.json())
+  .then(data => Gas11 = data.result[0].values)
+  .then(() => showGas.push(Gas11))
+  .then(() => console.log(Gas11));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d12}`)
+  .then(response => response.json())
+  .then(data => Gas12 = data.result[0].values)
+  .then(() => showGas.push(Gas12))
+  .then(() => console.log(Gas12));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d13}`)
+  .then(response => response.json())
+  .then(data => Gas13 = data.result[0].values)
+  .then(() => showGas.push(Gas13))
+  .then(() => console.log(Gas13));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d14}`)
+  .then(response => response.json())
+  .then(data => Gas14 = data.result[0].values)
+  .then(() => showGas.push(Gas14))
+  .then(() => console.log(Gas14));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d15}`)
+  .then(response => response.json())
+  .then(data => Gas15 = data.result[0].values)
+  .then(() => showGas.push(Gas15))
+  .then(() => console.log(Gas15));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d16}`)
+  .then(response => response.json())
+  .then(data => Gas16 = data.result[0].values)
+  .then(() => showGas.push(Gas16))
+  .then(() => console.log(Gas16));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d17}`)
+  .then(response => response.json())
+  .then(data => Gas17 = data.result[0].values)
+  .then(() => showGas.push(Gas17))
+  .then(() => console.log(Gas17));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d18}`)
+  .then(response => response.json())
+  .then(data => Gas18 = data.result[0].values)
+  .then(() => showGas.push(Gas18))
+  .then(() => console.log(Gas18));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d19}`)
+  .then(response => response.json())
+  .then(data => Gas19 = data.result[0].values)
+  .then(() => showGas.push(Gas19))
+  .then(() => console.log(Gas19));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d20}`)
+  .then(response => response.json())
+  .then(data => Gas20 = data.result[0].values)
+  .then(() => showGas.push(Gas20))
+  .then(() => console.log(Gas20));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d21}`)
+  .then(response => response.json())
+  .then(data => Gas21 = data.result[0].values)
+  .then(() => showGas.push(Gas21))
+  .then(() => console.log(Gas21));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d22}`)
+  .then(response => response.json())
+  .then(data => Gas22 = data.result[0].values)
+  .then(() => showGas.push(Gas22))
+  .then(() => console.log(Gas22));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d23}`)
+  .then(response => response.json())
+  .then(data => Gas23 = data.result[0].values)
+  .then(() => showGas.push(Gas23))
+  .then(() => console.log(Gas23));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d24}`)
+  .then(response => response.json())
+  .then(data => Gas24 = data.result[0].values)
+  .then(() => showGas.push(Gas24))
+  .then(() => console.log(Gas24));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d25}`)
+  .then(response => response.json())
+  .then(data => Gas25 = data.result[0].values)
+  .then(() => showGas.push(Gas25))
+  .then(() => console.log(Gas25));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d26}`)
+  .then(response => response.json())
+  .then(data => Gas26 = data.result[0].values)
+  .then(() => showGas.push(Gas26))
+  .then(() => console.log(Gas26));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d27}`)
+  .then(response => response.json())
+  .then(data => Gas27 = data.result[0].values)
+  .then(() => showGas.push(Gas27))
+  .then(() => console.log(Gas27));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d28}`)
+  .then(response => response.json())
+  .then(data => Gas28 = data.result[0].values)
+  .then(() => showGas.push(Gas28))
+  .then(() => console.log(Gas28));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d29}`)
+  .then(response => response.json())
+  .then(data => Gas29 = data.result[0].values)
+  .then(() => showGas.push(Gas29))
+  .then(() => console.log(Gas29));
+
+  await fetch(`https://localhost:5001/api/pi/InventoryStockGas95/${d30}`)
+  .then(response => response.json())
+  .then(data => Gas30 = data.result[0].values)
+  .then(() => showGas.push(Gas30))
+  .then(() => console.log(Gas30));
+
+    // DATA SHOW DIESEL
+
+  var data1 = {
+    labels  : ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
+    datasets : [
+    {
+      label               : 'Litres',
+      borderColor         : 'rgba(60,141,188,0.8)',
+      fill: false,
+      data :  Object.values(showDiesel)
+    }
+    ]
+  }
+
+  var data2 = {
+    labels  : ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
+    datasets : [
+    {
+      label               : 'Litres',
+      borderColor         : 'rgba(255,0,0,0.9)',
+      fill: false,
+      data :  Object.values(showGas)
+    }
+    ]
+  }
+
+  // LINE CHART SETTINGS 1
+
+    var lineChartCanvas = document.getElementById('lineChart').getContext('2d');
+    var lineChartData = $.extend(true, {}, data1)
+    @* var temp0 = data1.datasets *@
+    lineChartData.datasets.fill = false;
+    @* lineChartOptions.datasetFill = false *@
+
+    var lineChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: true
+      },
+       scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true,
+            }
+        }]
+      }
+    }
+
+    new Chart(lineChartCanvas, {
+      type: 'line',
+      data: lineChartData,
+      options: lineChartOptions
+    })
+
+    // LINE CHART SETTINGS 2
+
+    var lineChartCanvas2 = document.getElementById('lineChart2').getContext('2d');
+    var lineChartData2 = $.extend(true, {}, data2)
+    @* var temp1 = data2.datasets *@
+    lineChartData2.datasets.fill = false;
+    @* lineChartOptions2.datasetFill = false *@
+
+    var lineChartOptions2 = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: true
+      },
+      scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true,
+            }
+        }]
+    }
+    }
+
+    new Chart(lineChartCanvas2, {
+      type: 'line',
+      data: lineChartData2,
+      options: lineChartOptions2,
+      showTooltips: false
+    })
+
+}
+
+
+</script>

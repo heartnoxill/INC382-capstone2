@@ -1,0 +1,85 @@
+@using Microsoft.AspNetCore;
+@model IEnumerable<Capstonetest1.Models.Truck>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Search Truck</h1>
+<center>
+<h2>Type Truck Number</h2>
+@using(Html.BeginForm("index","Truck", FormMethod.Get)){
+    <input type="string" name="truck_search" value=""/>
+    <input type="submit" name="submit" value="Search"/>
+}
+</center>
+ <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-body">
+                <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.po_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.truck_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Station_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_in)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time_in)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_out)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time_out)
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach(var item in Model){
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.po_no)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.truck_id)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Station_name)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Date_in)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Time_in)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Service_time)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Date_out)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Time_out)
+            </th>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>

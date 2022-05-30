@@ -1,0 +1,96 @@
+@model IEnumerable<Capstonetest1.Models.Journal>
+
+@{
+    ViewData["Title"] = "Journal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <a class="nav-link btn btn-secondary" asp-controller="Finance" asp-action="Index">Back to Finance Page</a>
+</div>
+
+<center><h1>General Journal</h1></center>
+
+<center>
+<div class="input-group-append">
+@using(Html.BeginForm("Journal","Finance", FormMethod.Get)){
+    <input type="date" name="sel_date" value="2022-03-31" min="2022-03-01" max="2022-05-01"/>
+    <input type="submit" name="submit" value="Search"/>
+}
+</center>
+  <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-body">
+                <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ref_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Action)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Debit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credit)
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach(var item in Model){
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.ref_no)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.date)
+            </th>
+             <th>
+                @Html.DisplayFor(modelItem => item.Truck_id)
+            </th>
+            <th>
+                @* @Html.DisplayFor(modelItem => item.Action) *@
+                @if(@item.Action == "Sale"){
+<pre>
+Account Receivable           @Html.DisplayFor(modelItem => item.Debit)
+
+      Sale Revenue         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;@Html.DisplayFor(modelItem => item.Credit)
+</pre>
+                }
+                else{
+<pre>
+Cost of Goods Sold           @Html.DisplayFor(modelItem => item.Debit)
+
+         Inventory         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;@Html.DisplayFor(modelItem => item.Credit)
+</pre>
+                }
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Type)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Debit)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Credit)
+            </th>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>

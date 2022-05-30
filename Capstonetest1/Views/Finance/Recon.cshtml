@@ -1,0 +1,88 @@
+@using Microsoft.AspNetCore;
+@model IEnumerable<Capstonetest1.Models.Recon>
+
+@{
+    ViewData["Title"] = "Recon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <a class="nav-link btn btn-secondary" asp-controller="Finance" asp-action="Index">Back to Finance Page</a>
+</div>
+<center>
+<h1>Reconciliation Sheet</h1>
+</center>
+  <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-body">
+                <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.po_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recon_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Invoice_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.truck_no)
+            </th>
+           <th>
+                @Html.DisplayNameFor(model => model.customer_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.litres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach(var item in Model){
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.po_number)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.recon_date)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Payment_NO)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Invoice_no)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.truck_no)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.customer_name)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.type)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.litres)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Price)
+            </th>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>

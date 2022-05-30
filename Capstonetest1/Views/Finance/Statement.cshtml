@@ -1,0 +1,100 @@
+@{
+    ViewData["Title"] = "Statement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <a class="nav-link btn btn-secondary" asp-controller="Finance" asp-action="Index">Back to Finance Page</a>
+</div>
+<Center>
+<h1>Monthly Income Statement</h1>
+</Center>
+
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+
+}
+</style>
+<body>
+ <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-body">
+                <table class="table table-bordered">
+ <div class="row">
+ <div class="row">
+
+<table style="width:100%">
+  <tr>
+    <th>SALES</th>
+  </tr>
+  <tr>
+    <td> &emsp; &emsp; &emsp;-DIESEL</td>
+    <td>689,637,278.90฿</td>
+  </tr>
+  <tr>
+    <td> &emsp; &emsp; &emsp;-GASOLHOL95</td>
+    <td>158,234,925.40฿</td>
+  </tr>
+  <tr>
+    <td><b>TOTAL SALES</b></td><!--40-->
+    <td> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;<b>847,872,204.30฿</b></td>
+  </tr>
+  <tr>
+    <td><br>LESS:Cost of Goods Sold</br></td>
+  </tr>
+  <tr>
+    <td> &emsp; &emsp; &emsp;-DIESEL</td>
+    <td>662,839,219.60฿</td>
+  </tr>
+  <tr>
+    <td> &emsp; &emsp; &emsp;-GASOLHOL95</td>
+    <td>129,256,778฿</td>
+  </tr>
+  <tr>
+    <td><b>TOTAL COGS</b></td>
+    <td>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;<b>792,095,997.10฿</b></td>
+  </tr>
+
+  <tr>
+    <th><b>GROSS PROFIT</b></th>
+    <td>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;<b>55,776,207.20฿</b></td>
+  </tr>
+
+  <tr>
+    <td><br>LESS: SELLING AND ADMINSTRATION EXPENSE</br></td>
+  </tr>
+  <tr>
+    <td>SALARY</td>
+
+  </tr>
+  <tr>
+    <td>&emsp; &emsp; &emsp;SALE OFFICE STAFF</td>
+    <td>54,000฿</td>
+  </tr>
+  <tr>
+    <td>&emsp; &emsp; &emsp;GATE CONTROLLER</td>
+    <td>37,500฿</td>
+  </tr>
+  <tr>
+      <td>UTILITY EXPENSE</td>
+      <td>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;<b>45,000฿</b></td>
+  </tr>
+
+  <tr>
+      <td>DEPRECIATION</td>
+      <td>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;<b>7,397.26฿</b></td>
+  </tr>
+  <tr>
+      <th>NET  INCOME (LOSS)</th>
+      <td>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;<b>55,632,309.94฿</b></td>
+  </tr>
+</table>
+
+@* <p>To undestand the example better, we have added borders to the table.</p> *@
+
+</body>
+</html>

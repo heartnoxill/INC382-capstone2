@@ -1,0 +1,86 @@
+@using Microsoft.AspNetCore;
+@model IEnumerable<Capstonetest1.Models.InventoryLedger>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <a class="nav-link btn btn-secondary" asp-controller="Finance" asp-action="Ledger">Back to General Ledger Page</a>
+</div>
+<Center>
+<h1>Inventory</h1>
+</Center>
+
+<center>
+  <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                  <tr>
+                  <th>
+                     @Html.DisplayNameFor(model => model.ref_no)
+                  </th>
+                  <th>
+                     @Html.DisplayNameFor(model => model.date)
+                  </th>
+                  <th>
+                     @Html.DisplayNameFor(model => model.Explaination)
+                  </th>
+                  <th>
+                     @Html.DisplayNameFor(model => model.Debit)
+                  </th>
+                  <th>
+                     @Html.DisplayNameFor(model => model.Credit)
+                  </th>
+                  <th>
+                     @Html.DisplayNameFor(model => model.Balance)
+                  </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  @foreach(var item in Model){
+                  <tr>
+                  <th>
+                     @Html.DisplayFor(modelItem => item.ref_no)
+                  </th>
+                  <th>
+                     @Html.DisplayFor(modelItem => item.date)
+                  </th>
+                  <th>
+                     @Html.DisplayFor(modelItem => item.Explaination)
+                  </th>
+                  <th>
+                @if(@item.Debit == 0){
+                  <pre>
+                  </pre>
+                    }
+                   else{
+                <pre>
+                @Html.DisplayFor(modelItem => item.Debit)
+                </pre>
+                     }
+                </th>
+                <th>
+                @if(@item.Credit == 0){
+                <pre>
+                </pre>
+                }
+                else{
+                <pre>
+                @Html.DisplayFor(modelItem => item.Credit)
+                </pre>
+                }
+                </th>
+
+                  <th>
+                     @Html.DisplayFor(modelItem => item.Balance)
+                  </th>
+                  </tr>}
+        </tbody>
+    </table>
+</div>

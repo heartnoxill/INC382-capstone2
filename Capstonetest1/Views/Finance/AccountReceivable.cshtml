@@ -1,0 +1,108 @@
+@using Microsoft.AspNetCore;
+@model IEnumerable<Capstonetest1.Models.AccountReceivable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <a class="nav-link btn btn-secondary" asp-controller="Finance" asp-action="Ledger">Back to General Ledger Page</a>
+</div>
+
+<h1>Account Receivable</h1>
+
+<center>
+@using(Html.BeginForm("AccountReceivable","Finance", FormMethod.Get)){
+    <input type="date" name="rec_date" value="2022-03-31" min="2022-03-01" max="2022-05-01"/>
+    <input type="submit" name="submit" value="Search"/>
+}
+</center>
+
+<center>
+  <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-body">
+                <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Action)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Debit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ref_no)
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach(var item in Model){
+        <tr>
+              <th>
+                @if(@item.Debit == 0){
+            <pre>
+            </pre>
+                }
+                else{
+            <pre>
+                @Html.DisplayFor(modelItem => item.id)
+            </pre>
+                }
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.date)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Action)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.type)
+            </th>
+            <th>
+                @if(@item.Debit == 0){
+            <pre>
+            </pre>
+                }
+                else{
+            <pre>
+                @Html.DisplayFor(modelItem => item.Debit)
+            </pre>
+                }
+            </th>
+            <th>
+                @if(@item.Credit == 0){
+            <pre>
+            </pre>
+                }
+                else{
+            <pre>
+                @Html.DisplayFor(modelItem => item.Credit)
+            </pre>
+                }
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.ref_no)
+            </th>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>
+</center>

@@ -1,0 +1,112 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <a class="nav-link btn btn-secondary" asp-controller="Finance" asp-action="Ledger">Back to General Ledger Page</a>
+</div>
+
+<h1>Cash</h1>
+
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+
+}
+</style>
+<body>
+
+
+<div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Cash</h3>
+
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>DATE</th>
+                      <th>EXPLANATION</th>
+                      <th>REF NO</th>
+                      <th>DEBIT</th>
+                      <th>CREDIT</th>
+                      <th>BALANCE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>31/03/2022</td>
+                      <td>Beginning Cash</td>
+                      <td>J1</td>
+                      <td>200,000</td>
+                      <td></td>
+                      <td>200,000</td>
+                    </tr>
+                    <tr>
+                      <td>29/04/2022</td>
+                      <td>Salary Expense</td>
+                      <td>J31</td>
+                      <td></td>
+                      <td>91,500</td>
+                      <td>108,500</td>
+                    </tr>
+                    <tr>
+                      <td>29/04/2022</td>
+                      <td>Utility Expense</td>
+                      <td>J31</td>
+                      <td></td>
+                      <td>45,000</td>
+                      <td>63,500</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+
+<!--<table style="width:100%">
+  <tr>
+                     <th>DATE</th>
+                     <th>EXPLANATION</th>
+                     <th>REF NO</th>
+    <th>DEBIT</th>
+    <th>CREDIT</th>
+    <th>BALANCE</th>
+  </tr>
+  <tr>
+    <td>31/03/2022</td>
+    <td>Beginning Cash</td>
+    <td>J1</td>
+    <td>200,000</td>
+    <td>0</td>
+    <td>200,000</td>
+  </tr>
+  <tr>
+    <td>29/04/2022</td>
+    <td>Salary Expense</td>
+    <td>J31</td>
+    <td>0</td>
+    <td>91,500</td>
+    <td>108,500</td>
+  </tr>
+  <tr>
+      <td>29/04/2022</td>
+      <td>Utility Expense</td>
+      <td>J31</td>
+      <td>0</td>
+      <td>45,000</td>
+      <td>63,500</td>
+  </tr>
+</table>-->
+@* <p>To undestand the example better, we have added borders to the table.</p> *@
+
+</body>
+</html>
