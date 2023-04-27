@@ -16,4 +16,4 @@ The other page connects to MS SQL Database and use SQL query to display the data
 
 The simulation data is obtained from AnyLogic software.
 
-
+See the summarization website here: https://sites.google.com/view/capstone2group1inc382?usp=sharing
